@@ -2,7 +2,7 @@ import express from "express";
 const usersRouter = express.Router();
 
 /* GET users listing. */
-usersRouter.get("/", function(req, res, next) {
+usersRouter.get("/", (req, res) => {
   res.json({name: "nico", age: 25});
 });
 
