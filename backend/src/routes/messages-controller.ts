@@ -7,7 +7,6 @@ import { paramAsId } from "./extractors";
 const messagesRouter = express.Router({ mergeParams: true });
 
 messagesRouter.get("/", async (req, res) => {
-  console.log("id is ", req.params.threadId);
   const msgs = await MessageStore.find({ threadId: paramAsId(req, "threadId")});
   res.json(msgs);
 });
