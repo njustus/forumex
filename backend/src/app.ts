@@ -1,10 +1,14 @@
 import cookieParser from "cookie-parser";
 import express from "express";
+import mongoose from "mongoose";
 import logger from "morgan";
 import path from "path";
 
+import config from "./config";
 import threadsRouter from "./routes/thread-controller";
 import usersRouter from "./routes/users";
+
+mongoose.connect(config.mongoAddress(), {useNewUrlParser: true});
 
 const app = express();
 

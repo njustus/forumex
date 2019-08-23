@@ -4,3 +4,4 @@ default:
   mongodb:
     host: 'localhost'
     port: 9010
+    db: 'forumex-dev'
