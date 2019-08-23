@@ -5,5 +5,7 @@ import {UserSchema} from "./index";
 export const MessageSchema = new Schema({
   author: UserSchema,
   content: String,
-  thread: String,
+  threadId: Schema.Types.ObjectId,
 });
+const MessageStore = mongoose.model<Message>("Message", MessageSchema);
+export default MessageStore;

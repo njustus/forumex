@@ -5,6 +5,7 @@ import logger from "morgan";
 import path from "path";
 
 import config from "./config";
+import messagesRouter from "./routes/messages-controller";
 import threadsRouter from "./routes/thread-controller";
 import usersRouter from "./routes/users";
 
@@ -20,5 +21,5 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/users", usersRouter);
 app.use("/threads", threadsRouter);
-
+app.use("/threads/:threadId/messages", messagesRouter);
 module.exports = app;
