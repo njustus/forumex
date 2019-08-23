@@ -1,5 +1,6 @@
 import express from "express";
 import {Thread, User} from "../../../interfaces/index";
+import {ThreadStore} from "../stores/index";
 const threadsRouter = express.Router();
 
 const dummyUser = {
@@ -8,14 +9,14 @@ const dummyUser = {
 };
 
 /* GET thread listing. */
-threadsRouter.get("/", (req, res) => {
-  const thread = {
-    author: dummyUser,
-    description: "just a sample",
-    id: "abc-123",
-    title: "a sample thread",
-  };
-  res.json([thread]);
+threadsRouter.get("/", async (req, res) => {
+  const threads = await ThreadStore.find();
+  res.json(threads);
+});
+threadsRouter.post("/", async (req, res) => {
+  const thread = new ThreadStore(req.body);
+  const newThread = await thread.save();
+  res.json(newThread);
 });
 
 export default threadsRouter;
