@@ -3,7 +3,7 @@ import express from "express";
 import logger from "morgan";
 import path from "path";
 
-import threadsRouter from "./routes/threads";
+import threadsRouter from "./routes/thread-controller";
 import usersRouter from "./routes/users";
 
 const app = express();
