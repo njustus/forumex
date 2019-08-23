@@ -6,7 +6,7 @@ process.env.DEBUG = 'forumex:*'
  * Module dependencies.
  */
 
-var app = require('../dist/app');
+var app = require('../dist/backend/src/app');
 var debug = require('debug')('forumex:server');
 var http = require('http');
 
