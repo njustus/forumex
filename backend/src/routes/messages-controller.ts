@@ -3,10 +3,20 @@ import mongoose from "mongoose";
 import {Thread, User} from "../../../interfaces/index";
 import MessageStore from "../stores/message-store";
 import {ThreadStore} from "../stores/thread-store";
-const messagesRouter = express.Router();
+import { paramAsId } from "./extractors";
+const messagesRouter = express.Router({ mergeParams: true });
 
+messagesRouter.get("/", async (req, res) => {
+  console.log("id is ", req.params.threadId);
+  const msgs = await MessageStore.find({ threadId: paramAsId(req, "threadId")});
+  res.json(msgs);
+});
+messagesRouter.get("/:messageId", async (req, res) => {
+  const msgs = await MessageStore.find({ threadId: paramAsId(req, "threadId"), _id: paramAsId(req, "messageId") });
+  res.json(msgs);
+});
 messagesRouter.post("/", async (req, res) => {
-  req.body.threadId = new mongoose.Types.ObjectId(req.params.threadId);
+  req.body.threadId = paramAsId(req, "threadId");
   const message = new MessageStore(req.body);
   const newMsg = await message.save();
   res.json(newMsg);
