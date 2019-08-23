@@ -9,12 +9,16 @@ process.env.DEBUG = 'forumex:*'
 var app = require('../dist/backend/src/app');
 var debug = require('debug')('forumex:server');
 var http = require('http');
+var yaml_config = require('node-yaml-config');
+var config = yaml_config.load('forumex.yml');
+
+debug("config loaded: ", config);
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(config.server.port);
 app.set('port', port);
 
 /**

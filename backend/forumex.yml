@@ -1,0 +1,6 @@
+default:
+  server:
+    port: 8888
+  mongodb:
+    host: 'localhost'
+    port: 9010
