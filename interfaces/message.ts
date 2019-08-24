@@ -1,11 +1,15 @@
-import {Document, Schema} from "mongoose";
+import {Document, Schema, Types} from "mongoose";
 import {Thread, User} from "./index";
 
-export interface Message extends Document {
-  _id: string;
+export interface MessageDoc extends Message, Document {
+  _id: Types.ObjectId;
+}
+
+export interface Message {
+  _id: Types.ObjectId;
   author: User;
   content: string;
-  threadId: Schema.Types.ObjectId;
+  threadId: Types.ObjectId;
   createdAt: Date;
   updatedAt?: Date;
 }

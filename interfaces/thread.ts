@@ -1,9 +1,13 @@
-import {Document} from "mongoose";
+import { Document, Types } from "mongoose";
 import {Message, Section, User} from "./index";
 
-export interface Thread extends Document {
+export interface ThreadDoc extends Document, Thread {
+  _id: Types.ObjectId;
+}
+
+export interface Thread {
   parent?: Section;
-  _id: string;
+  _id: Types.ObjectId;
   title: string;
   description: string;
   author: User;

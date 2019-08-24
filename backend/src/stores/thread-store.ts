@@ -1,5 +1,5 @@
 import mongoose, {Schema} from "mongoose";
-import {Thread} from "../../../interfaces/index";
+import {ThreadDoc} from "../../../interfaces/index";
 import {MessageSchema, UserSchema} from "./index";
 
 export const ThreadSchema = new Schema({
@@ -10,4 +10,4 @@ export const ThreadSchema = new Schema({
   updatedAt: Date,
 });
 
-export const ThreadStore = mongoose.model<Thread>("Thread", ThreadSchema);
+export const ThreadStore = mongoose.model<ThreadDoc>("Thread", ThreadSchema);

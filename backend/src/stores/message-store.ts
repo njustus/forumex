@@ -1,5 +1,5 @@
 import mongoose, {Schema} from "mongoose";
-import {Message} from "../../../interfaces/index";
+import {MessageDoc} from "../../../interfaces/index";
 import {UserSchema} from "./index";
 
 export const MessageSchema = new Schema({
@@ -9,5 +9,5 @@ export const MessageSchema = new Schema({
   createdAt: { type: Date, required: true },
   updatedAt: Date,
 });
-const MessageStore = mongoose.model<Message>("Message", MessageSchema);
+const MessageStore = mongoose.model<MessageDoc>("Message", MessageSchema);
 export default MessageStore;
