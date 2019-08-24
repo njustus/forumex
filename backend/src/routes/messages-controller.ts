@@ -17,6 +17,7 @@ messagesRouter.get("/:messageId", async (req, res) => {
 messagesRouter.post("/", async (req, res) => {
   req.body.threadId = paramAsId(req, "threadId");
   const message = new MessageStore(req.body);
+  message.createdAt = new Date();
   const newMsg = await message.save();
   res.json(newMsg);
 });

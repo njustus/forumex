@@ -8,4 +8,6 @@ export interface Thread extends Document {
   description: string;
   author: User;
   messages?: Message[];
+  createdAt: Date;
+  updatedAt?: Date;
 }

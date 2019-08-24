@@ -22,6 +22,7 @@ threadsRouter.get("/:threadId", async (req, res) => {
 });
 threadsRouter.post("/", async (req, res) => {
   const thread = new ThreadStore(req.body);
+  thread.createdAt = new Date();
   const newThread = await thread.save();
   res.json(newThread);
 });
