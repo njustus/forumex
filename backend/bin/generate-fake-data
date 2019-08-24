@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+process.env.DEBUG = 'forumex:*'
+var fakeData = require('../dist/backend/src/generate-fake-data')
