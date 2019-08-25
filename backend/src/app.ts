@@ -8,6 +8,8 @@ import config from "./config";
 import threadsRouter from "./routes/thread-controller";
 import usersRouter from "./routes/users";
 
+const route = (route: string) => `/api/${route}`;
+
 mongoose.connect(config.mongoAddress(), {useNewUrlParser: true});
 
 const app = express();
@@ -18,6 +20,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/users", usersRouter);
-app.use("/threads", threadsRouter);
+app.use(route("users"), usersRouter);
+app.use(route("threads"), threadsRouter);
 module.exports = app;
