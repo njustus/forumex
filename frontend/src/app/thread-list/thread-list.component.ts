@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as R from 'ramda'
+import { ThreadService } from '../services/thread.service';
+import { Observable } from 'rxjs';
+import { Thread } from '../../../../interfaces'
 
 @Component({
   selector: 'app-thread-list',
@@ -8,11 +11,11 @@ import * as R from 'ramda'
 })
 export class ThreadListComponent implements OnInit {
 
-  private threads: any[]
+  private threads: Observable<Thread[]>
 
-  constructor() { }
+  constructor(private readonly threadService: ThreadService) { }
 
   ngOnInit() {
-    this.threads = R.repeat({_id: "abc-1234", title: "sample title", description: "sample description"}, 10)
+    this.threads = this.threadService.getThreads()
   }
 }
