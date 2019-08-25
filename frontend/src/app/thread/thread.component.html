@@ -1,2 +1,7 @@
 <h4>{{(thread | async).title}}</h4>
 <p>{{(thread | async).description}}</p>
+
+<div *ngFor="let msg of (messages | async)">
+  <p>{{msg.content}}</p>
+  <small>{{msg.author.displayName || msg.author.username}} at {{msg.createdAt | date:'short' }}</small>
+</div>
