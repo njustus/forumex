@@ -14,8 +14,9 @@ export class ThreadService {
     return this.http.get<Thread>(`/api/threads/${id}`)
   }
   getThreads(page:number=0): Observable<Thread[]> {
-    const uri = new URL("/api/threads")
+    const uri = new URL("api/threads", location.origin)
     uri.searchParams.append('page', encodeURIComponent(page))
+    console.log("calling: ", uri)
     return this.http.get<Thread[]>(uri.toString())
   }
 }
