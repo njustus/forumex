@@ -1,0 +1,14 @@
+<p>thread-list works!</p>
+
+<div class="list-group">
+  <a href="#"
+     class="list-group-item list-group-item-action"
+     *ngFor="let thread of threads">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{thread.title}}</h5>
+      <small>3 days ago</small>
+    </div>
+    <p class="mb-1">{{thread.description}}</p>
+    <small>Opened by: </small>
+  </a>
+</div>

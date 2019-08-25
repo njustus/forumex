@@ -5,10 +5,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ThreadListComponent } from './thread-list/thread-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ThreadListComponent
   ],
   imports: [
     BrowserModule,
