@@ -1,7 +1,7 @@
 <p>thread-list works!</p>
 
 <div class="list-group">
-  <a [routerLink]="['/threads', thread._id]"
+  <a [routerLink]="[thread._id]"
      class="list-group-item list-group-item-action"
      *ngFor="let thread of (threads | async)">
     <div class="d-flex w-100 justify-content-between">
