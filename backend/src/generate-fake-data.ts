@@ -48,7 +48,6 @@ const promises = threads.map(async (thread) => {
   return threadModel;
 });
 
-Promise.all(promises);
-debug("faker finished!");
-
-mongoose.connection.close();
+Promise.all(promises)
+  .then(() => mongoose.connection.close())
+  .then(() => debug("faker finished!"));
