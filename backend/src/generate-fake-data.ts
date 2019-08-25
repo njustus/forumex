@@ -10,7 +10,7 @@ const debug = require("debug")("forumex:faker");
 debug("connecting to mongodb..");
 mongoose.connect(config.mongoAddress(), {useNewUrlParser: true});
 
-const threads: Thread[] = R.repeat(5, 10).map((five) => {
+const threads: Thread[] = R.repeat(5, 100).map((five) => {
   const user: User = {
     displayName: faker.name.findName(),
     username: faker.internet.userName()
