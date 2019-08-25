@@ -12,7 +12,7 @@ usersRouter.post("/", async (req, res) => {
   res.json(await user.save());
 });
 usersRouter.get("/:userName", async (req, res) => {
-  const user = await UserStore.find({username: req.params.userName});
+  const user = await UserStore.findOne({username: req.params.userName});
   res.json(user);
 });
 

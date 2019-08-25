@@ -11,7 +11,7 @@ messagesRouter.get("/", async (req, res) => {
   res.json(msgs);
 });
 messagesRouter.get("/:messageId", async (req, res) => {
-  const msgs = await MessageStore.find({ threadId: paramAsId(req, "threadId"), _id: paramAsId(req, "messageId") });
+  const msgs = await MessageStore.findOne({ threadId: paramAsId(req, "threadId"), _id: paramAsId(req, "messageId") });
   res.json(msgs);
 });
 messagesRouter.post("/", async (req, res) => {

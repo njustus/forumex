@@ -17,7 +17,7 @@ threadsRouter.get("/", async (req, res) => {
   res.json(threads);
 });
 threadsRouter.get("/:threadId", async (req, res) => {
-  const thread = await ThreadStore.find({_id: paramAsId(req, "threadId")});
+  const thread = await ThreadStore.findOne({_id: paramAsId(req, "threadId")});
   res.json(thread);
 });
 threadsRouter.post("/", async (req, res) => {
