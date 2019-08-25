@@ -6,6 +6,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ThreadListComponent } from './thread-list/thread-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,15 @@ import { ThreadListComponent } from './thread-list/thread-list.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot([
+      {path: '', redirectTo: '/threads', pathMatch: 'full'},
+      {path: 'threads', component: ThreadListComponent},
+      // {path: '/threads/:threadId', component: ThreadComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
