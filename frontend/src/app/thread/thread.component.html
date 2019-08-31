@@ -1,7 +1,16 @@
-<h4>{{(thread | async).title}}</h4>
-<p>{{(thread | async).description}}</p>
+<div class="row">
+  <div class="card col-12">
+    <h4 class="card-header">{{(thread | async).title}}</h4>
+    <p class="card-body">{{(thread | async).description}}</p>
+  </div>
+</div>
 
-<div *ngFor="let msg of (messages | async)">
-  <p>{{msg.content}}</p>
-  <small>{{msg.author.displayName || msg.author.username}} at {{msg.createdAt | date:'short' }}</small>
+<div class="row mt-4" *ngFor="let msg of (messages | async)">
+  <div class="col-2 border">
+      <p>{{msg.author.displayName || msg.author.username}}</p>
+      <p>{{msg.createdAt | date:'short' }}</p>
+  </div>
+  <div class="card col-10 border">
+    <p class="card-body">{{msg.content}}</p>
+  </div>
 </div>
