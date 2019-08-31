@@ -1,7 +1,7 @@
 import mongoose, {Schema} from "mongoose";
 import {UserDoc} from "../../../interfaces/index";
 
-export const UserSchema = new Schema({
+export const UserColSchema = new Schema({
   username: {
     type: String,
     index: {
@@ -11,4 +11,9 @@ export const UserSchema = new Schema({
   displayName: String
 });
 
-export const UserStore = mongoose.model<UserDoc>("User", UserSchema);
+export const UserSchema = new Schema({
+  username: String,
+  displayName: String
+});
+
+export const UserStore = mongoose.model<UserDoc>("User", UserColSchema);
