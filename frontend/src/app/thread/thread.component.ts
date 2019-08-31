@@ -16,12 +16,13 @@ export class ThreadComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly threadService: ThreadService,
-    private readonly messageService: MessageService) {}
-
-  ngOnInit() {
+    private readonly messageService: MessageService) {
     this.thread = this.route.paramMap
       .pipe(map(params => params.get('threadId')))
       .pipe(flatMap(id => this.threadService.getThread(id)))
     this.messages = this.thread.pipe(flatMap(thread => this.messageService.forThread(thread._id.toString())))  
+  }
+
+  ngOnInit() {
   }
 }
