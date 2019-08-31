@@ -1,6 +1,6 @@
 <p>thread-list works!</p>
 
-<app-new-thread></app-new-thread>
+<app-new-thread (newThreadEvent)="addThread($event)"></app-new-thread>
 
 <div class="list-group">
   <a [routerLink]="[thread._id]"

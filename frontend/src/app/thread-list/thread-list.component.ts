@@ -19,4 +19,7 @@ export class ThreadListComponent implements OnInit {
 
   ngOnInit() {
   }
+  addThread(t: Thread) {
+    this.threads = this.threadService.getThreads()
+  }
 }
