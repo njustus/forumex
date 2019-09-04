@@ -1,5 +1,3 @@
-<p>thread-list works!</p>
-
 <app-new-thread (newThreadEvent)="addThread($event)"></app-new-thread>
 
 <div class="list-group">
@@ -8,7 +6,7 @@
      *ngFor="let thread of (threads | async)">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{thread.title}}</h5>
-      <small>3 days ago</small>
+      <small>{{thread.createdAt | date:'short' }}</small>
     </div>
     <p class="mb-1">{{thread.description}}</p>
     <small>Written by: {{thread.author}}</small>

@@ -13,7 +13,7 @@ const dummyUser = {
 
 /* GET thread listing. */
 threadsRouter.get("/", async (req, res) => {
-  const threads = await ThreadStore.find();
+  const threads = await ThreadStore.find().sort("-createdAt");
   res.json(threads);
 });
 threadsRouter.get("/:threadId", async (req, res) => {
