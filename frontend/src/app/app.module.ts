@@ -10,13 +10,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ThreadComponent } from './thread/thread.component';
 import { NewThreadComponent } from './thread/new-thread/new-thread.component';
+import { NewMessageComponent } from './message/new-message/new-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadListComponent,
     ThreadComponent,
-    NewThreadComponent
+    NewThreadComponent,
+    NewMessageComponent
   ],
   imports: [
     BrowserModule,

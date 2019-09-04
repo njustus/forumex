@@ -1,0 +1,9 @@
+<p>new-message works!</p>
+<div class="card">
+  <form [formGroup]='messageForm' class="card-body" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <textarea type="text" formControlName='content' class="form-control" rows="4"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Message</button>
+  </form>
+</div>
