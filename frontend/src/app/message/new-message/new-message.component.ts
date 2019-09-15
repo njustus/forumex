@@ -31,10 +31,8 @@ export class NewMessageComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit() {
-    console.log(this.messageForm.value.content)
     this.threadId.pipe(
       flatMap(id => this.messageService.newMessage(id, this.messageForm.value.content)))
-      .toPromise()
-      .then(m => console.log("msg: ", m))
+      .subscribe(m => this.newMessageEvent.emit(m))
   }
 }
