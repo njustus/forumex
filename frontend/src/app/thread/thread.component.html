@@ -6,11 +6,11 @@
 </div>
 
 <div class="row mt-4" *ngFor="let msg of (messages | async)">
-  <div class="col-2 border">
-      <p>{{msg.author.displayName || msg.author.username}}</p>
+  <div class="col-2 card">
+      <p class="">{{msg.author.displayName || msg.author.username}}</p>
       <p>{{msg.createdAt | date:'short' }}</p>
   </div>
-  <div class="card col-10 border">
+  <div class="card col-10">
     <p class="card-body">{{msg.content}}</p>
   </div>
 </div>
