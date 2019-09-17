@@ -1,4 +1,11 @@
-<app-new-thread (newThreadEvent)="addThread($event)"></app-new-thread>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newThreadCollapse"
+    aria-expanded="false" aria-controls="newThreadCollapse">
+    New Thread
+  </button>
+
+<div class="collapse" id="newThreadCollapse">
+  <app-new-thread (newThreadEvent)="addThread($event)"></app-new-thread>
+</div>
 
 <div class="list-group">
   <a [routerLink]="[thread._id]"
